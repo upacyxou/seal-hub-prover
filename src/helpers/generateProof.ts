@@ -28,14 +28,11 @@ interface ExtendedBasePoint extends elliptic.curve.base.BasePoint {
 }
 
 const getPointPreComputes = (point: ExtendedBasePoint) => {
-  console.log('points')
   const keyPoint = ec.keyFromPublic({
     x: Buffer.from(point.x.toString(16), 'hex').toString('hex'),
     y: Buffer.from(point.y.toString(16), 'hex').toString('hex'),
   })
-  console.log('whyyy')
   const gPowers = [] as BigIntOrString[][][][]
-  console.log('started generating')
   for (let i = 0n; i < NUM_STRIDES; i++) {
     const stride: BigIntOrString[][][] = []
     const power = 2n ** (i * STRIDE)
@@ -50,24 +47,20 @@ const getPointPreComputes = (point: ExtendedBasePoint) => {
     }
     gPowers.push(stride)
   }
-  console.log('generated')
   return gPowers
 }
 
 export function generateInput(signature: string, message: string) {
   const msgHash = hashPersonalMessage(Buffer.from(message))
   const { v, r, s } = utils.splitSignature(signature)
-  console.log('asdasdasd')
   const biV = BigInt(v)
   const biR = new BN(r.slice(2, r.length), 'hex')
   const hexS = s.slice(2, s.length)
-  console.log('proc')
   const isYOdd = (biV - BigInt(27)) % BigInt(2)
   const rPoint = ec.keyFromPublic(
     ec.curve.pointFromX(new BN(biR), isYOdd).encode('hex'),
     'hex'
   )
-  console.log('lag')
   // Get the group element: -(m * r^−1 * G)
   const rInv = new BN(biR).invm(SECP256K1_N)
 
@@ -78,9 +71,7 @@ export function generateInput(signature: string, message: string) {
 
   // T = r^-1 * R
   const T = rPoint.getPublic().mul(rInv) as ExtendedBasePoint
-  console.log('hsjdfhjsd')
   const TPreComputes = getPointPreComputes(T)
-  console.log('ret')
   return {
     TPreComputes,
     U: [splitToRegisters(U.x), splitToRegisters(U.y)],
@@ -89,9 +80,7 @@ export function generateInput(signature: string, message: string) {
 }
 
 export default function build(input: ProofInput): Promise<ProofResult> {
-  //   const files = await getECDSACheckerFiles()
   const wasm = readFileSync(resolve(cwd(), './zkp/ECDSAChecker.wasm'))
   const zkey = readFileSync(resolve(cwd(), './zkp/ECDSAChecker_final.zkey'))
-  console.log(wasm)
   return snarkjs.groth16.fullProve(input, wasm, zkey)
 }
