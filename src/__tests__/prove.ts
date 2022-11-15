@@ -9,7 +9,7 @@ import runMongo from '@/helpers/mongo'
 
 jest.setTimeout(60000 * 10)
 
-describe('Login endpoint', () => {
+describe('Prove endpoint', () => {
   let server: Server
   let mongoServer: MongoMemoryServer
   let mongoose: Mongoose
