@@ -1,10 +1,10 @@
 {
-  "name": "backend-starter",
+  "name": "seal-hub-prover",
   "version": "1.0.0",
-  "description": "Backend starter template",
+  "description": "Prover for SealHub",
   "main": "dist/server.js",
-  "repository": "https://github.com/Borodutch/backend-starter",
-  "author": "backmeupplz <backmeupplz@gmail.com>",
+  "repository": "https://github.com/BigWhaleLabs/seal-hub-prover",
+  "author": "Big Whale Lab",
   "license": "MIT",
   "scripts": {
     "build": "tsc --skipLibCheck",
