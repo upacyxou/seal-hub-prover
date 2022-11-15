@@ -1,0 +1,7 @@
+FROM node:18
+WORKDIR /usr
+COPY . ./
+RUN yarn
+RUN yarn get-zkp
+EXPOSE 1337
+CMD yarn start
