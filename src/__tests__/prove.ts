@@ -3,14 +3,13 @@ import * as shutdown from 'http-graceful-shutdown'
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import { Mongoose } from 'mongoose'
 import { Server } from 'http'
-import MockAdapter from 'axios-mock-adapter'
-import axios from 'axios'
+import { Wallet } from 'ethers'
 import runApp from '@/helpers/runApp'
 import runMongo from '@/helpers/mongo'
 
-describe('Login endpoint', () => {
-  const axiosMock = new MockAdapter(axios)
+jest.setTimeout(60000 * 10)
 
+describe('Prove endpoint', () => {
   let server: Server
   let mongoServer: MongoMemoryServer
   let mongoose: Mongoose
@@ -35,19 +34,13 @@ describe('Login endpoint', () => {
     })
   })
 
-  it('should return user for valid /google request', async () => {
-    const testingGoogleMock = {
-      name: 'John Doe',
-      email: 'john@doe.com',
-    }
-    axiosMock
-      .onGet('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=test')
-      .reply(200, testingGoogleMock)
-    const response = await request(server)
-      .post('/login/google')
-      .send({ accessToken: 'test' })
-    console.log(response.error)
-    expect(response.body.name).toBe(testingGoogleMock.name)
-    expect(response.body.email).toBe(testingGoogleMock.email)
+  it('should return valid proof for /prove request', async () => {
+    const message = 'Signature for SealHub'
+    const wallet = Wallet.createRandom()
+    const signature = await wallet.signMessage(message)
+    await request(server)
+      .post('/')
+      .send({ signature: signature, message })
+      .expect(200)
   })
 })
