@@ -13,28 +13,27 @@ export default class ProveController {
     const job = await JobModel.create({ input })
     job.input = undefined
     const result: { job: Job; position?: number } = { job }
-    if (job.status === JobStatus.scheduled) {
+    if (job.status === JobStatus.scheduled)
       result.position = await JobModel.countDocuments({
         status: JobStatus.scheduled,
         createdAt: { $lt: job.createdAt },
       })
-    }
+
     return result
   }
   @Get('/:id')
   async status(@Ctx() ctx: Context, @Params() { id }: ProofResultParams) {
     const job = await JobModel.findById(id)
-    if (!job) {
-      return ctx.throw(notFound())
-    }
+    if (!job) return ctx.throw(notFound())
+
     job.input = undefined
     const result: { job: Job; position?: number } = { job }
-    if (job.status === JobStatus.scheduled) {
+    if (job.status === JobStatus.scheduled)
       result.position = await JobModel.countDocuments({
         status: JobStatus.scheduled,
         createdAt: { $lt: job.createdAt },
       })
-    }
+
     return result
   }
 }

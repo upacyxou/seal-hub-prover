@@ -69,16 +69,14 @@ async function checkAndRunJobs() {
 async function runJob(job: DocumentType<Job>) {
   console.log(`Running job ${job.id}...`)
   console.log('Generating witness and creating proof...')
-  if (!job.input) {
-    throw new Error('Job input is missing')
-  }
+  if (!job.input) throw new Error('Job input is missing')
+
   const inputs = generateInput(job.input.signature, job.input.message)
   const { proof, publicSignals } = await build(inputs)
   console.log('Verifying proof...')
   const res = await snarkjs.groth16.verify(vKey, publicSignals, proof)
-  if (!res) {
-    throw new Error('Proof verification failed')
-  }
+  if (!res) throw new Error('Proof verification failed')
+
   console.log(`Proof verified for job ${job.id}`)
   return { proof, publicSignals }
 }

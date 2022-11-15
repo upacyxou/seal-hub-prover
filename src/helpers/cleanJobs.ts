@@ -6,11 +6,11 @@ export default async function cleanJobs() {
     status: { $in: [JobStatus.scheduled, JobStatus.running] },
   })
   console.log(`Found ${jobs.length} jobs, cancelling them...`)
-  for (const job of jobs) {
+  for (const job of jobs)
     await job.updateOne({
       status: JobStatus.cancelled,
       $unset: { input: true },
     })
-  }
+
   console.log('Cancled all jobs')
 }
