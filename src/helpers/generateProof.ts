@@ -5,10 +5,7 @@ import * as elliptic from 'elliptic'
 import * as snarkjs from 'snarkjs'
 import { BigIntOrString } from '@/models/BigIntOrString'
 import { ProofInput } from '@/models/ProofInput'
-import { cwd } from 'process'
 import { hashPersonalMessage } from '@ethereumjs/util'
-import { readFileSync } from 'fs'
-import { resolve } from 'path'
 import { utils } from 'ethers'
 import ProofResult from '@/models/ProofResult'
 import splitToRegisters from '@/helpers/splitToRegisters'
@@ -80,7 +77,9 @@ export function generateInput(signature: string, message: string) {
 }
 
 export default function build(input: ProofInput): Promise<ProofResult> {
-  const wasm = readFileSync(resolve(cwd(), './zkp/ECDSAChecker.wasm'))
-  const zkey = readFileSync(resolve(cwd(), './zkp/ECDSAChecker_final.zkey'))
-  return snarkjs.groth16.fullProve(input, wasm, zkey)
+  return snarkjs.groth16.fullProve(
+    input,
+    './zkp/ECDSAChecker.wasm',
+    './zkp/ECDSAChecker_final.zkey'
+  )
 }
