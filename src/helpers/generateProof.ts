@@ -2,6 +2,7 @@
 // Used by worker, which accepts only absolute paths, you can use this function as usual
 import * as BN from 'bn.js'
 import * as elliptic from 'elliptic'
+import * as snarkjs from 'snarkjs'
 import { BigIntOrString } from '@/models/BigIntOrString'
 import { ProofInput } from '@/models/ProofInput'
 import { cwd } from 'process'
@@ -10,7 +11,6 @@ import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import { utils } from 'ethers'
 import ProofResult from '@/models/ProofResult'
-import snarkjs from 'snarkjs'
 import splitToRegisters from '@/helpers/splitToRegisters'
 
 const ec = new elliptic.ec('secp256k1')

@@ -4,10 +4,10 @@ import { MongoMemoryServer } from 'mongodb-memory-server'
 import { Mongoose } from 'mongoose'
 import { Server } from 'http'
 import { Wallet } from 'ethers'
-import MockAdapter from 'axios-mock-adapter'
-import axios from 'axios'
 import runApp from '@/helpers/runApp'
 import runMongo from '@/helpers/mongo'
+
+jest.setTimeout(60000 * 10)
 
 describe('Login endpoint', () => {
   let server: Server
@@ -38,10 +38,9 @@ describe('Login endpoint', () => {
     const message = 'Signature for SealHub'
     const wallet = Wallet.createRandom()
     const signature = await wallet.signMessage(message)
-    const response = await request(server)
+    await request(server)
       .post('/')
       .send({ signature: signature, message })
       .expect(200)
-    console.log(response)
   })
 })
