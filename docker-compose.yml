@@ -23,6 +23,8 @@ services:
       - ENVIRONMENT=development
     profiles:
       - development
+    expose:
+      - 1337
     hostname: backend
   backend-production:
     build:
@@ -36,6 +38,8 @@ services:
     profiles:
       - production
       - production-no-dns
+    expose:
+      - 1337
     hostname: backend
   # Reverse proxy
   caddy:
