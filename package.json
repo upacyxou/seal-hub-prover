@@ -13,11 +13,14 @@
     "distribute": "yarn build && concurrently 'yarn distribute-server' 'yarn distribute-checker'",
     "develop-server": "tsc-watch --skipLibCheck --onSuccess 'node dist/server.js'",
     "develop-checker": "tsc-watch --skipLibCheck --onSuccess 'node dist/checker.js'",
+    "docker-start-development": "docker-compose --profile=development up",
+    "docker-start-production": "docker-compose --profile=production up",
+    "docker-start-production-no-dns": "docker-compose --profile=production-no-dns up",
     "start": "concurrently 'yarn develop-server' 'yarn develop-checker'",
     "test": "yarn jest --forceExit --runInBand",
     "pretty": "prettier --check src",
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src",
-    "get-zkp": "bash scripts/getWasm.sh"
+    "download-zk-files": "bash scripts/getWasm.sh"
   },
   "dependencies": {
     "@ethereumjs/util": "^8.0.2",
