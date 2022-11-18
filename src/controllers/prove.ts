@@ -34,6 +34,7 @@ export default class ProveController {
         createdAt: { $lt: job.createdAt },
       })
 
-    return result
+    const { status, result: jobResult } = result.job
+    return { status, result: jobResult }
   }
 }
