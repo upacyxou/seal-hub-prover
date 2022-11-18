@@ -18,8 +18,7 @@ export default class ProveController {
         status: JobStatus.scheduled,
         createdAt: { $lt: job.createdAt },
       })
-
-    return result
+    return { id: job._id, position: result.position || 0 }
   }
   @Get('/:id')
   async status(@Ctx() ctx: Context, @Params() { id }: ProofResultParams) {
