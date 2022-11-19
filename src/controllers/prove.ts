@@ -6,7 +6,7 @@ import Inputs from '@/validators/Inputs'
 import JobStatus from '@/models/JobStatus'
 import ProofResultParams from '@/validators/ProofResultParam'
 
-@Controller('/prove')
+@Controller('/')
 export default class ProveController {
   @Post('/')
   async proof(@Body({ required: true }) input: Inputs) {
