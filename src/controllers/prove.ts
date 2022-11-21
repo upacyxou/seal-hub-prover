@@ -1,8 +1,8 @@
-import * as JSONbig from 'json-bigint'
 import { Body, Controller, Ctx, Get, Params, Post } from 'amala'
 import { Context } from 'koa'
 import { Job, JobModel } from '@/models/Job'
 import { notFound } from '@hapi/boom'
+import { parse } from 'json-bigint'
 import JobStatus from '@/models/JobStatus'
 import JsonProofInput from '@/validators/JsonProofInput'
 import ProofInput from '@/validators/ProofInput'
@@ -14,9 +14,9 @@ export default class ProveController {
   async proof(@Body({ required: true }) input: JsonProofInput) {
     const { TPreComputes, U, s } = input
     const parsedInput: ProofInput = {
-      TPreComputes: JSONbig.parse(TPreComputes),
-      U: JSONbig.parse(U),
-      s: JSONbig.parse(s),
+      TPreComputes: parse(TPreComputes),
+      U: parse(U),
+      s: parse(s),
     }
     const job = await JobModel.create({ input: parsedInput })
     job.input = undefined
