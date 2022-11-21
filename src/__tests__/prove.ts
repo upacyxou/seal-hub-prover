@@ -34,7 +34,7 @@ describe('Prove endpoint', () => {
     })
   })
 
-  it('should return valid proof for /prove request', async () => {
+  it('should return valid proof for / request', async () => {
     const message = 'Signature for SealHub'
     const wallet = Wallet.createRandom()
     const signature = await wallet.signMessage(message)
