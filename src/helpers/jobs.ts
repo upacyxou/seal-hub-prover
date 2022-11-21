@@ -5,7 +5,7 @@ import { cwd } from 'process'
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import JobStatus from '@/models/JobStatus'
-import build, { generateInput } from '@/helpers/generateProof'
+import build from '@/helpers/generateProof'
 
 const vKey = JSON.parse(
   readFileSync(
@@ -71,8 +71,7 @@ async function runJob({ id, input }: DocumentType<Job>) {
   console.log('Generating witness and creating proof...')
   if (!input) throw new Error('Job input is missing')
 
-  const inputs = generateInput(input.signature, input.message)
-  const { proof, publicSignals } = await build(inputs)
+  const { proof, publicSignals } = await build(input)
   console.log('Verifying proof...')
   const res = await snarkjs.groth16.verify(vKey, publicSignals, proof)
   if (!res) throw new Error('Proof verification failed')
