@@ -5,7 +5,6 @@
 3. Select the following options (keep others as default):
    | Option | Value |
    | --------------------------------------- | ------------- |
-   | Name | SealHubProver |
    | Machine Configuration -> Machine Family | e2-standard-2 |
    | Firewall -> Allow HTTPS | Checked (yes) |
 4. Press the "CREATE" button
