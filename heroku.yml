@@ -1,6 +1,5 @@
-build: 
-  docker: 
+build:
+  docker:
     web: Dockerfile.backend.production
     mongodb: Dockerfile.mongodb
-    caddy: Dockerfile.caddy
     localtunnel: Dockerfile.localtunnel
