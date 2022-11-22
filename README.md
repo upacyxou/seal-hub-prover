@@ -20,12 +20,19 @@ Visit [this tutorial](./docs/aws.md) for Amazon AWS installation
 
 > ⚠️ Make sure your machine has at least 8GB of RAM
 
-1. Make the `1337` port on the VPS accessible to the internet
-2. Run the following command to download and launch the prover:
+Run the following cURL or Wget command to download and launch the prover:
 
 ```bash
-curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/scripts/install.sh | sh
+curl -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/scripts/install.sh | bash
 ```
+
+```bash
+wget -qO- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/scripts/install.sh | bash
+```
+
+# TODO: how to get the URL of the prover now?
+
+# TODO: how to set my own domain name?
 
 ## Local launch
 
