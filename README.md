@@ -1,6 +1,6 @@
 # SealHub Prover code
 
-The centralized prover that is used to generate ZK proofs for SealHub.
+The centralized prover that is used to generate ZK proofs for SealHub
 
 ## Deploying to cloud
 
@@ -52,4 +52,4 @@ curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/ins
 | `PORT`   |    ✅    | Port to run server on (defaults to `1337`)                        |
 | `DOMAIN` |    ✅    | Your domain for docker                                            |
 
-Also, please, consider looking at `.env.sample`.
+Also, please, consider looking at `.env.sample`
