@@ -8,29 +8,28 @@ The centralized prover that is used to generate ZK proofs for SealHub.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BigWhaleLabs/seal-hub-prover/tree/main)
 
-### Google Cloud
+## Google Cloud
 
 Visit [this tutorial](./tutorials/GCPINSTALLATION.md) for Google Cloud installation
 
-### Amazon AWS
+## Amazon AWS
 
 Visit [this tutorial](./tutorials/AWSINSTALLATION.md) for Amazon AWS installation
 
-### Any VPS server with `apt` package manager
+## Any VPS with `apt` package manager
 
-**Make sure your machine has at least 8GB of RAM**
+> ⚠️ Make sure your machine has at least 8GB of RAM
 
-Follow the next steps:
-
-1. Make port `1337` of your VM accessible from outside
-2. Download deployment script from our repo:
+1. Make the `1337` port on the VPS accessible to the internet
+2. Run the following command to download and launch the prover:
 
 ```bash
-curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/run_unix.sh | sh
-
+curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/install.sh | sh
 ```
 
-## Installation and local launch
+## Local launch
+
+### Without Docker
 
 1. Clone this repo: `git clone https://github.com/BigWhaleLabs/seal-hub-prover`
 2. Launch the [mongo database](https://www.mongodb.com/) locally
@@ -39,14 +38,13 @@ curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/run
 5. Run `yarn download-zk-files` for all ZK files
 6. Run `yarn start`
 
-### Using docker
+### Using Docker
 
-1. Create `.env` with the environment variables listed below
-2. Run `yarn docker-start-development` or `yarn docker-start-production`
+1. Clone this repo: `git clone https://github.com/BigWhaleLabs/seal-hub-prover`
+2. Create `.env` with the environment variables listed below
+3. Run `yarn docker-start-development` or `yarn docker-start-production`
 
-And you should be good to go! Feel free to fork and submit pull requests.
-
-### Environment variables
+## Environment variables
 
 | Name     | Optional | Description                                                       |
 | -------- | :------: | ----------------------------------------------------------------- |
