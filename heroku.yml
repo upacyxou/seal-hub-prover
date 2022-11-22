@@ -2,4 +2,3 @@ build:
   docker:
     web: Dockerfile.backend.production
     mongodb: Dockerfile.mongodb
-    localtunnel: Dockerfile.localtunnel
