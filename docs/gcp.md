@@ -5,7 +5,7 @@
 3. Select the following options (keep others as default):
    | Option | Value |
    | --------------------------------------- | ------------- |
-   | Machine Configuration -> Machine Family | e2-standard-2 |
+   | Machine Configuration -> Machine type | e2-standard-2 |
    | Firewall -> Allow HTTPS | Checked (yes) |
 4. Press the "CREATE" button
 5. Press the "SSH" button on the created instance
