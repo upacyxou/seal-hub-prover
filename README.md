@@ -16,7 +16,7 @@ Visit [this tutorial](./docs/gcp.md) for Google Cloud installation
 
 Visit [this tutorial](./docs/aws.md) for Amazon AWS installation
 
-## Any VPS with `apt` package manager
+## Any VPS with `apt-get` package manager
 
 > ⚠️ Make sure your machine has at least 8GB of RAM
 
