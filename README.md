@@ -24,7 +24,7 @@ Visit [this tutorial](./tutorials/AWSINSTALLATION.md) for Amazon AWS installatio
 2. Run the following command to download and launch the prover:
 
 ```bash
-curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/install.sh | sh
+curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/scripts/install.sh | sh
 ```
 
 ## Local launch
