@@ -14,3 +14,5 @@
 ```bash
 curl -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/main/scripts/install.sh | bash
 ```
+
+7. Note the prover URL that will be displayed in the end, this is the URL you will use at [SealHub](https://hub.sealc.red)
