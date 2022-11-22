@@ -30,10 +30,6 @@ curl -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/main/scr
 wget -qO- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/main/scripts/install.sh | bash
 ```
 
-# TODO: how to get the URL of the prover now?
-
-# TODO: how to set my own domain name?
-
 ## Local launch
 
 ### Without Docker
