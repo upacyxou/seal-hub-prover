@@ -20,4 +20,4 @@ git clone https://github.com/BigWhaleLabs/seal-hub-prover.git
 cd seal-hub-prover 
 # Install dependencies and start SealHub Proof Generator
 yarn
-sudo docker compose --profile=production up
+yarn docker-start-production-no-dns
