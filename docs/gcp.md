@@ -12,7 +12,7 @@
 6. Run the following script:
 
 ```bash
-curl -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/scripts/install.sh | bash
+curl -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/main/scripts/install.sh | bash
 ```
 
 # TODO: how to get the URL of the prover now?

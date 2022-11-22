@@ -1,29 +1,23 @@
+# Running SealHub Prover on Amazon Web Services
+
 1. Go to [AWS EC2 console](https://us-east-1.console.aws.amazon.com/ec2/)
-2. Click **Launch instance**, select **Launch instance** in there
-3. Set following parameters like this (keep others as default):
-
-| Heading                   | Parameter           | Value                |
-| ------------------------- | ------------------- | -------------------- |
-| Name                      |                     | Something sensible   |
-| Instance type             |                     | `t2.large` or better |
-| Application and OS images |                     | Debian               |
-| Network settings          | Allow HTTPS traffic | Checked              |
-| Network settings          | Allow HTTP traffic  | Checked              |
-
-4. Create key pair by clicking **Create new keypair**, choose a sensible name and click **Create keypair**. AWS will automatically download private key file. You will need it later to connect to your EC2 instance.
-5. Click **Launch instance**
-6. Wait until instance loads and click **Connect to instance**
-7. Click **SSH Client** and follow the connection guide in there.
-8. Save the connection string and go back to _EC2_ page. Look for **Security Groups** in the sidebar and click on it.
-9. Click on **Security Group ID** that corresponds to name `launch-wizard-*`. Click on the ID.
-10. On the _Security Group_ page click **Edit inbound rules**, then click on **"Add rule"**.
-11. Choose **Custom TCP**, type in port `1337`and choose `0.0.0.0/0` IP range. Then click **Save rules**.
-12. Connect to your instance with a command saved in _Step 8_.
-13. Download and launch deployment script from our repo:
+2. Press the "Launch instance" button and select "Launch instance"
+3. Select the following options (keep others as default):
+   | Option | Value |
+   | ------------------- | -------------------- |
+   | Application and OS images | Ubuntu |
+   | Instance type | `t2.large` or better |
+   | Network settings -> "Allow HTTPS traffic from the internet" | Checked |
+   | Key pair (login) | "Proceed without a key pair" |
+4. Press the "Launch instance" button
+5. Wait until instance loads and press the "Connect to instance" button
+6. Make sure that "EC2 Instance Connect" is selected and press the "Connect" button
+7. Run the following script:
 
 ```bash
-curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/run_unix.sh | sh
-
+curl -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/main/scripts/install.sh | bash
 ```
 
-It will load all the required files and launch the proof generator
+# TODO: how to get the URL of the prover now?
+
+# TODO: how to set my own domain name?
