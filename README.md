@@ -1,6 +1,6 @@
 # SealHub Prover code
 
-This repository is to be used as proof generator for SealHub
+The centralized prover that is used to generate ZK proofs for SealHub.
 
 ## Deploying to cloud
 
