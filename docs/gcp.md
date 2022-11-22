@@ -7,7 +7,6 @@
    | --------------------------------------- | ------------- |
    | Machine Configuration -> Machine type | e2-standard-2 |
    | Firewall -> Allow HTTPS | Checked (yes) |
-   
 4. Go to "Boot disk" section and press "CHANGE" button
 5. Select "Ubuntu" in "Operating system" dropdown menu (keep others as default)
 6. Press the "SELECT" button
