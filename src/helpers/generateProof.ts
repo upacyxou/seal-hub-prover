@@ -5,7 +5,7 @@ import ProofResult from '@/models/ProofResult'
 export default function (input: ProofInput): Promise<ProofResult> {
   return snarkjs.groth16.fullProve(
     input,
-    './zkp/ECDSAChecker.wasm',
-    './zkp/ECDSAChecker_final.zkey'
+    './zk/ECDSAChecker.wasm',
+    './zk/ECDSAChecker_final.zkey'
   )
 }
