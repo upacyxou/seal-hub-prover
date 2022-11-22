@@ -4,7 +4,7 @@
   "description": "Prover for SealHub",
   "main": "dist/server.js",
   "repository": "https://github.com/BigWhaleLabs/seal-hub-prover",
-  "author": "Big Whale Lab",
+  "author": "Big Whale Labs",
   "license": "MIT",
   "scripts": {
     "build": "tsc --skipLibCheck",
