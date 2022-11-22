@@ -24,7 +24,7 @@ export class Job {
   result?: ProofResult
 
   // Mongo fields
-  createdAt?: Date
+  createdAt!: Date
 }
 
 export const JobModel = getModelForClass(Job)

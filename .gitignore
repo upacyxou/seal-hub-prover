@@ -2,7 +2,8 @@
 node_modules
 *.log
 dist
-zkp
+zkp/*
+!zkp/.gitkeep
 
 # yarn
 .pnp.*
