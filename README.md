@@ -50,6 +50,6 @@ curl -qLs -o- https://raw.githubusercontent.com/BigWhaleLabs/seal-hub-prover/ins
 | -------- | :------: | ----------------------------------------------------------------- |
 | `MONGO`  |    ✅    | URL of the mongo database (defaults to `mongodb://mongodb:27017`) |
 | `PORT`   |    ✅    | Port to run server on (defaults to `1337`)                        |
-| `DOMAIN` |    ✅    | Your domain for docker                                            |
+| `DOMAIN` |    ✅    | The domain for Docker (must point at the VPS)                     |
 
 Also, please, consider looking at `.env.sample`
