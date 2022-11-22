@@ -10,11 +10,11 @@ The centralized prover that is used to generate ZK proofs for SealHub
 
 ## Google Cloud
 
-Visit [this tutorial](./tutorials/GCPINSTALLATION.md) for Google Cloud installation
+Visit [this tutorial](./docs/gcp.md) for Google Cloud installation
 
 ## Amazon AWS
 
-Visit [this tutorial](./tutorials/AWSINSTALLATION.md) for Amazon AWS installation
+Visit [this tutorial](./docs/aws.md) for Amazon AWS installation
 
 ## Any VPS with `apt` package manager
 
