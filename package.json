@@ -80,5 +80,8 @@
   "_moduleAliases": {
     "@": "dist"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.3.0",
+  "engines": {
+    "node": "16.x"
+  }
 }
