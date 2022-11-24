@@ -1,7 +1,7 @@
 spec:
   name: seal-hub-prover
-  static_sites:
-    - git:
-        branch: main
-        repo_clone_url: https://github.com/upacyxou/seal-hub-prover.git
-      name: seal-hub-prover
+  services:
+  - name: prover
+    git:
+      branch: main
+      repo_clone_url: https://github.com/upacyxou/seal-hub-prover.git
