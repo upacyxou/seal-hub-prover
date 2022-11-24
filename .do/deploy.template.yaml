@@ -1,12 +1,12 @@
 spec:
   name: seal-hub-prover
   services:
-  - name: prover
-    git:
-      branch: main
-      repo_clone_url: https://github.com/upacyxou/seal-hub-prover.git
-    dockerfile_path: Dockerfile.backend.production
-    http_port: 1337
-  - cors:
-      allow_origins:
+    - name: prover
+      git:
+        branch: main
+        repo_clone_url: https://github.com/upacyxou/seal-hub-prover.git
+      dockerfile_path: Dockerfile.backend.production
+      http_port: 1337
+  cors:
+    allow_origins:
       - exact: https://hub.sealcred.xyz/
