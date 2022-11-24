@@ -5,3 +5,5 @@ spec:
     git:
       branch: main
       repo_clone_url: https://github.com/upacyxou/seal-hub-prover.git
+    dockerfile_path: Dockerfile.backend.production
+    http_port: 1337
