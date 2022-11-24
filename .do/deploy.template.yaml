@@ -1,12 +1,7 @@
 spec:
-  name: seal-hub-prover
-  services:
-    - name: seal-hub-prover
-      git:
+  name: sample-html
+  static_sites:
+    - git:
         branch: main
-        repo_clone_url: https://github.com/BigWhaleLabs/seal-hub-prover.git
-      dockerfile_path: Dockerfile.backend.production
-      http_port: 1337
-    - cors:  
-        allow_origins:
-        - exact: https://hub.sealcred.xyz/   
+        repo_clone_url: https://github.com/digitalocean/sample-html.git
+      name: sample-html
