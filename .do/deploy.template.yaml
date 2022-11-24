@@ -9,4 +9,4 @@ spec:
       http_port: 1337
       cors:
         allow_origins:
-          - exact: https://hub.sealcred.xyz/
+          - exact: https://hub.sealcred.xyz
